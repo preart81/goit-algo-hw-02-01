@@ -47,7 +47,6 @@ def process_request(queue):
 
     Параметри:
     - queue -- черга"""
-    # global queue, id_rqst
     # Якщо черга не пуста:
     if not queue.empty():
 
@@ -78,7 +77,7 @@ if __name__ == "__main__":
     # Головний цикл програми:
     try:
         # Поки користувач не вийде з програми:
-        
+
         # Стовримо початкову чергу
         for _ in range(5):
             id_rqst = generate_request(queue, id_rqst)
