@@ -8,9 +8,21 @@
 from collections import deque
 
 
-def ispalindrome(text: str) -> bool:
+def ispalindrome(text: str, debug=False) -> bool:
+    """Перевірка чи є фраза паліндромом.
+
+    Параметри:
+    - text -- фраза для перевірки
+    - debug -- False : повідомлення відладки
+
+    Результат: bool
+        True: якщо фраза є палндромом"""
     text = text.lower()
     text = "".join((filter(str.isalpha, text)))
+    if debug:
+        print(f"{text}, len={len(text)}")
+        print(text[::-1])
+
     queue = deque(text)
     equal = True
     while equal and len(queue) >= 2:
@@ -19,6 +31,7 @@ def ispalindrome(text: str) -> bool:
 
 
 if __name__ == "__main__":
+    """Головний цикл"""
 
     class bcolors:
         RED = "\033[1;31m"
@@ -34,7 +47,7 @@ if __name__ == "__main__":
         "Козак з казок.",
         "Уже лисі ліси... Лежу.",
         "І що сало? Ласощі...",
-        "І що салоo? Ласощі...",
+        "І що салоо? Ласощі...",
         "Не паліндром",
         "Дід і дід",
         "Е, ти дурен, ерудите! ",
